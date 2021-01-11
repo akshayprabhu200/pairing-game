@@ -1,7 +1,89 @@
-.selected {
-  color: #ff0000;
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
 }
 
-.matched {
-  color: #00ff00;
+body {
+  background: #ffffff;
+  font-family: "Permanent Marker", cursive;
+  font-size: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+h2 {
+  color: #ffffff !important;
+}
+
+.playcard.disabled {
+  transform: rotateY(0);
+  background: #79f308;
+  cursor: default;
+  animation-name: flipInY;
+  animation-duration: 0.75s;
+}
+
+.playcard {
+  height: 3.7rem;
+  width: 30rem;
+  margin: 0.2rem 0.2rem;
+  background: #141214;
+  color: #ffffff;
+  border-radius: 5px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 5px 2px 20px 0 rgba(46, 61, 73, 0.5);
+}
+
+.playcard.selected {
+  transform: rotateY(0);
+  background: #02b3e4;
+  cursor: default;
+  animation-name: flipInY;
+  animation-duration: 0.75s;
+}
+
+#card {
+  margin-left: auto;
+  margin-right: auto;
+  background: #716f71;
+  padding: 1rem;
+  border-radius: 4px;
+  box-shadow: 8px 9px 26px 0 rgba(46, 61, 73, 0.5);
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
+}
+
+@keyframes flipInY {
+  from {
+    transform: perspective(400px) rotate3d(0, 1, 0, 90deg);
+    animation-timing-function: ease-in;
+    opacity: 0;
+  }
+
+  40% {
+    transform: perspective(400px) rotate3d(0, 1, 0, -20deg);
+    animation-timing-function: ease-in;
+  }
+
+  60% {
+    transform: perspective(400px) rotate3d(0, 1, 0, 10deg);
+    opacity: 1;
+  }
+
+  80% {
+    transform: perspective(400px) rotate3d(0, 1, 0, -5deg);
+  }
+
+  to {
+    transform: perspective(400px);
+  }
 }

@@ -187,16 +187,16 @@ function selectCard(element) {
     sessionStorage.removeItem("selected");
   } else if (!sessionStorage.getItem("selected")) {
     this.classList.toggle("selected");
-    let value = element.target.id;
-    let word = element.target.innerHTML;
+    let value = this.childNodes[1].id;
+    let word = this.childNodes[1].innerHTML;
     sessionStorage.setItem("selected", value);
     sessionStorage.setItem("word", word);
-  } else if (sessionStorage.getItem("selected") == element.target.id) {
+  } else if (sessionStorage.getItem("selected") == this.childNodes[1].id) {
     this.classList.toggle("selected");
     let matched = [...document.getElementsByClassName("selected")];
     matched.forEach((e) => {
       e.classList.toggle("selected");
-      e.classList.toggle("matched");
+      e.classList.toggle("disabled");
       e.removeEventListener("click", selectCard);
     });
     sessionStorage.removeItem("selected");
@@ -206,7 +206,6 @@ function selectCard(element) {
       congrats();
     }
   } else {
-    this.classList.toggle("selected");
     let unmatched = [...document.getElementsByClassName("selected")];
     unmatched.forEach((e) => {
       e.classList.toggle("selected");
@@ -214,8 +213,6 @@ function selectCard(element) {
     sessionStorage.removeItem("selected");
     sessionStorage.removeItem("word");
   }
-
-  this.classList.toggle("disabled");
 }
 
 function startGame() {
