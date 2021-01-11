@@ -245,6 +245,9 @@ function startGame() {
 function congrats() {
   message = document.getElementById("message");
   message.innerHTML = "Congrats you found all pairs!";
+  for (var i = 0; i < cards.length; i++) {
+    cards[i].removeEventListener("click", selectCard);
+  }
 }
 
 function getRange(min, max) {
