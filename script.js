@@ -289,8 +289,8 @@ function getKeys(array, num) {
   return list;
 }
 
-function onlyUnique(value, index, self) {
-  return self.indexOf(value) === index;
+function reload() {
+  Location.reload();
 }
 
 function pickKeys() {
